@@ -31,7 +31,7 @@ class Scoreboard:
         self.ships = Group()
         for ship_number in range(self.stats.ships_left):
             ship = Ship(self.ai_game)
-            ship.rect.x = 10+ship_number*ship.rect.width
+            ship.rect.x = 10 + ship_number * ship.rect.width
             ship.rect.y = 10
             self.ships.add(ship)
 
@@ -41,10 +41,10 @@ class Scoreboard:
         self.level_image = self.font.render(level_str, True,
                                             self.text_color, self.settings.bg_color)
 
-        # Position the level below the score.
+        # Position the level above the score.
         self.level_rect = self.level_image.get_rect()
         self.level_rect.right = self.score_rect.right
-        self.level_rect.top = self.score_rect.bottom+10
+        self.level_rect.bottom = self.score_rect.top - 10
 
     def prep_score(self):
         """Turn the score into a rendered image."""
@@ -54,7 +54,7 @@ class Scoreboard:
             score_str, True, self.text_color, self.settings.bg_color
         )
 
-        # Display the score in the center of the screen.
+        # Display the score in the bottom right of the screen.
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = self.screen_rect.right - self.margin
         self.score_rect.bottom = self.screen_rect.bottom - self.margin
