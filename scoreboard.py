@@ -10,6 +10,7 @@ class Scoreboard:
         self.screen_rect = self.screen.get_rect()
         self.settings = ai_game.settings
         self.stats = ai_game.stats
+        self.margin = 20
 
         # Font settings for scoring information.
         self.text_color = (30, 30, 30)
@@ -27,7 +28,8 @@ class Scoreboard:
 
         # Display the score in the center of the screen.
         self.score_rect = self.score_image.get_rect()
-        self.score_rect.center = self.screen_rect.center
+        self.score_rect.right = self.screen_rect.right - self.margin
+        self.score_rect.bottom = self.screen_rect.bottom - self.margin
 
     def show_score(self):
         """Draw score to the screen."""
